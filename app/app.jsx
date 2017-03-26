@@ -2,8 +2,9 @@
  var ReactDOM = require('react-dom');
 // var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
+var LoadDataApp = require('LoadDataApp');
  var AddLoadInfo = require('AddLoadInfo');
-
+/*
 var LoadDisplay = React.createClass({
     render: function () {
       return (
@@ -13,7 +14,7 @@ var LoadDisplay = React.createClass({
       );
     }
 });
-
+*/
 // Load foundation
 //$(document).foundation();
 
@@ -21,6 +22,6 @@ var LoadDisplay = React.createClass({
 //require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
-<AddLoadInfo/>,
+<LoadDataApp/>,
   document.getElementById('app')
 );
