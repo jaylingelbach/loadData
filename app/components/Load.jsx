@@ -2,16 +2,12 @@ var React = require('react');
 
 var Load = React.createClass({
   render: function() {
-    var {powderMan} = this.props;
-    var {powder} = this.props;
-    var {charge} = this.props;
-    var {bulletDes} = this.props;
-    var {bulletWei} = this.props;
-    var {oal} = this.props;
+    var {id, powderMan, powder, charge, bulletDes, bulletWei, oal} = this.props;
 
     return(
       <div>
         <ul>
+          {id} .
           <li>Powder Manufacturer:{powderMan}</li>
           <li>{powder}</li>
           <li>{charge}</li>
