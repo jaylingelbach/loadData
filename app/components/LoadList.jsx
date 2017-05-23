@@ -1,5 +1,5 @@
-var React = require('react');
-var Load = require('Load');
+import React from 'react';
+import Load from 'Load';
 
 var LoadList = React.createClass({
   render: function() {

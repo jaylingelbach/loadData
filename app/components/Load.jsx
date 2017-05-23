@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 var Load = React.createClass({
   render: function() {
@@ -23,7 +23,7 @@ var Load = React.createClass({
 module.exports = Load;
 
 /*
-// find way to return them all at once without writing them all out!
+// find way to return them all at once without writing them all out! -array but really not a huge deal
 
 
 

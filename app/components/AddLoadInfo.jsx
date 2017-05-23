@@ -1,23 +1,53 @@
-var React = require('react');
+import React from 'react';
+import t from 'tcomb-form';
+
+const Form = t.form.Form;
+
+const Type = t.struct({
+  PowderManufacturer: t.String,
+  Powder: t.String,
+  Charge: t.Number,
+  Primer: t.String,
+  BulletDescription: t.String,
+  BulletWeight: t.String,
+  OverallLength: t.Number
+});
+
 
   var AddLoadInfo = React.createClass({
 
+    onSubmit(e) {
+      e.preventDefault()
+         const value = this.refs.form.getValue()
+         if (value) {
+           console.log(value)
+         }
+     },
+
+    // save() {
+    //   const value = this.refs.form.getValue();
+    //   if (value) {
+    //     console.log(value);
+    //   }
+    // },
+
+    onChange(value) {
+      this.setState({ value: value });
+    },
+
     render: function () {
       return(
-          <form onSubmit={this.onFormSubmit}>
-          <input type="text" ref="powder-man" placeholder="Powder Manufacturer"/>
-          <input type="text" ref="powder" placeholder="Powder name"/>
-          <input type="text" ref="charge" placeholder="Amount in grains"/>
-          <input type="text" ref="primer" placeholder="Enter primer"/>
-          <input type="text" ref="bullet-des" placeholder="Bullet used"/>
-          <input type="text" ref="bullet-wei" placeholder="Bullet weight"/>
-          <input type="text" ref="oal" placeholder="Overall length"/>
-          <textarea ref="notes" placeholder="Notes"></textarea>
-          <input type="submit" ref="load-info"/>
-          </form>
+        <div className="form-group">
+          <Form
+            ref="form"
+            type={Type}
+            onChange={this.onChange}
+            />
+          <button type="submit" className="btn btn-primary">Save</button>
+        </div>
       );
     }
-
 });
+
 
 module.exports = AddLoadInfo;

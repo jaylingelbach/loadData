@@ -1,11 +1,13 @@
-var React = require('react');
-var LoadList = require('LoadList');
+import React from 'react';
+import LoadList from 'LoadList';
+import AddLoadInfo from 'AddLoadInfo';
 
 
 var LoadDataApp = React.createClass({
 
   getInitialState: function() {
     return {
+      value: null,
       loads: [
         {
           id: 1,
@@ -59,6 +61,7 @@ var LoadDataApp = React.createClass({
 
     return(
         <div>
+          <AddLoadInfo form={this.props.form} />
           <LoadList loads= {loads}/>
         </div>
     )
