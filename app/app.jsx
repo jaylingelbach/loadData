@@ -1,17 +1,20 @@
- var React = require('react');
- var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
+import React from 'react';
+import ReactDOM from'react-dom';
+import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
-var LoadDataApp = require('LoadDataApp');
-var AddLoadInfo = require('AddLoadInfo');
+import Main from 'Main';
+import About from 'About';
+import LoadDataApp from 'LoadDataApp';
+import AddLoadInfo from 'AddLoadInfo';
 
 // Load foundation
 //$(document).foundation();
-
+// LoadDataApp comparable to video main
 ReactDOM.render(
   <Router history={ hashHistory }>
-    <Route path="/" component={ LoadDataApp }>
-
+    <Route path="/" component={ Main }>
+      <Route path="about" component={ About }/>
+      <IndexRoute component={ LoadDataApp }/>
     </Route>
 
   </Router>,
