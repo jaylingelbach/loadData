@@ -3,9 +3,9 @@ import t from 'tcomb-form';
 
 const Form = t.form.Form;
 
-const Type = t.struct({
+const FormSchema = t.struct({
   Caliber: t.String,
-  dataSource: t.String,
+  DataSource: t.String,
   PowderManufacturer: t.String,
   Powder: t.String,
   Charge: t.Number,
@@ -18,35 +18,31 @@ const Type = t.struct({
 
   var AddLoadInfo = React.createClass({
 
+    resetForm() {
+      this.setState({value: null});
+    },
+
     onSubmit(e) {
       e.preventDefault()
          const value = this.refs.form.getValue()
          if (value) {
            console.log(value)
          }
+         this.resetForm();
      },
 
-    // save() {
-    //   const value = this.refs.form.getValue();
-    //   if (value) {
-    //     console.log(value);
-    //   }
+    // onChange(value) {
+    //   this.setState({ value: value });
     // },
-
-    onChange(value) {
-      this.setState({ value: value });
-    },
 
     render: function () {
       return(
+        <form onSubmit={this.onSubmit}>
+          <t.form.Form ref="form" type={FormSchema}/>
         <div className="form-group">
-          <Form
-            ref="form"
-            type={Type}
-            onChange={this.onChange}
-            />
           <button type="submit" className="btn btn-primary">Save</button>
         </div>
+      </form>
       );
     }
 });

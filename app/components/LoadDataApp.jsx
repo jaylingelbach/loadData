@@ -1,7 +1,7 @@
 import React from 'react';
 import LoadList from 'LoadList';
 import AddLoadInfo from 'AddLoadInfo';
-
+import Nav from 'Nav';
 
 var LoadDataApp = React.createClass({
 
