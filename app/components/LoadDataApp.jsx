@@ -11,6 +11,8 @@ var LoadDataApp = React.createClass({
       loads: [
         {
           id: 1,
+          caliber: '7.62 X 54R',
+          dataSource: 'Nosler',
           powderMan: 'Vihtavouori ',
           powder: 'N140 ',
           charge: '42.8gr ',
@@ -21,6 +23,7 @@ var LoadDataApp = React.createClass({
         },
         {
           id: 2,
+          caliber: '30-06',
           powderMan: 'IMR ',
           powder: '4895 ',
           charge: '32gr ',
@@ -32,6 +35,7 @@ var LoadDataApp = React.createClass({
 
         {
           id: 3,
+          caliber: '30 M1 Carbine',
           powderMan: 'Hodgdon ',
           powder: 'H110 ',
           charge: '13gr ',
@@ -43,6 +47,7 @@ var LoadDataApp = React.createClass({
 
         {
           id: 4,
+          caliber: '45 ACP',
           powderMan: 'Alliant ',
           powder: 'Bullseye ',
           charge: '5gr ',

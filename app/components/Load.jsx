@@ -2,18 +2,20 @@ import React from 'react';
 
 var Load = React.createClass({
   render: function() {
-    var {id, powderMan, powder, charge, bulletDes, bulletWei, oal} = this.props;
+    var {id, caliber,dataSource, powderMan, powder, charge, bulletDes, bulletWei, oal} = this.props;
 
     return(
       <div>
         <ul>
           {id} .
+          <li>Caliber: {caliber}</li>
+          <li>Data Source: {dataSource} </li>
           <li>Powder Manufacturer:{powderMan}</li>
-          <li>{powder}</li>
-          <li>{charge}</li>
-          <li>{bulletDes}</li>
-          <li>{bulletWei}</li>
-          <li>{oal}</li>
+          <li>Powder: {powder}</li>
+          <li>Charge: {charge}</li>
+          <li>Bullet make/model: {bulletDes}</li>
+          <li>Bullet Weight: {bulletWei}</li>
+          <li>Overall Length: {oal}"</li>
         </ul>
       </div>
     )

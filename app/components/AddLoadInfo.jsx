@@ -4,6 +4,8 @@ import t from 'tcomb-form';
 const Form = t.form.Form;
 
 const Type = t.struct({
+  Caliber: t.String,
+  dataSource: t.String,
   PowderManufacturer: t.String,
   Powder: t.String,
   Charge: t.Number,
