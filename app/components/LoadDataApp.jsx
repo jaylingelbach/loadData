@@ -2,6 +2,7 @@ import React from 'react';
 import LoadList from 'LoadList';
 import AddLoadInfo from 'AddLoadInfo';
 import Nav from 'Nav';
+import LoadWorkUp from 'LoadWorkUp';
 
 var LoadDataApp = React.createClass({
 
@@ -17,6 +18,7 @@ var LoadDataApp = React.createClass({
           powder: 'N140 ',
           charge: '42.8gr ',
           primer: 'CCI 200 ',
+          primerLotNum: 'n/a',
           bulletDes: 'Lapua D166 ',
           bulletWei: '200gr',
           oal: '2.99 '
@@ -28,6 +30,7 @@ var LoadDataApp = React.createClass({
           powder: '4895 ',
           charge: '32gr ',
           primer: ' CCI 200 ',
+          primerLotNum: 'n/a',
           bulletDes: 'Lyman 311299 ',
           bulletWei: '200gr',
           oal: ' 3.56 '
@@ -40,6 +43,7 @@ var LoadDataApp = React.createClass({
           powder: 'H110 ',
           charge: '13gr ',
           primer: ' CCI 400 ',
+          primerLotNum: 'n/a',
           bulletDes: 'Jacketed soft point ',
           bulletWei: '110gr',
           oal: ' 2.34 '
@@ -52,6 +56,7 @@ var LoadDataApp = React.createClass({
           powder: 'Bullseye ',
           charge: '5gr ',
           primer: ' CCI 200 ',
+          primerLotNum: 'n/a',
           bulletDes: 'Round Nose ',
           bulletWei: '230gr',
           oal: ' 1.25 '
@@ -66,8 +71,8 @@ var LoadDataApp = React.createClass({
 
     return(
         <div>
-          <AddLoadInfo form={this.props.form} />
-          <LoadList loads= {loads}/>
+          <AddLoadInfo form={this.props.form} className="container-fluid" />
+          <LoadList loads= {loads} className="container-fluid"/>
         </div>
     )
   }

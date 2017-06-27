@@ -1,8 +1,9 @@
 import React from 'react';
-import LoadDataApp from 'LoadDataApp'
+import LoadDataApp from 'LoadDataApp';
 import LoadList from 'LoadList';
 import AddLoadInfo from 'AddLoadInfo';
 import Nav from 'Nav';
+import LoadWorkUp from 'LoadWorkUp';
 
 var Main = React.createClass({
   render: function() {
