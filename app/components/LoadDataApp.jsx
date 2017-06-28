@@ -4,78 +4,91 @@ import AddLoadInfo from 'AddLoadInfo';
 import Nav from 'Nav';
 import LoadWorkUp from 'LoadWorkUp';
 
-var LoadDataApp = React.createClass({
+class LoadDataApp extends React.Component {
 
-  getInitialState: function() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       value: null,
       loads: [
         {
           id: 1,
-          caliber: '7.62 X 54R',
-          dataSource: 'Nosler',
-          powderMan: 'Vihtavouori ',
-          powder: 'N140 ',
-          charge: '42.8gr ',
-          primer: 'CCI 200 ',
-          primerLotNum: 'n/a',
-          bulletDes: 'Lapua D166 ',
-          bulletWei: '200gr',
-          oal: '2.99 '
+          caliber: ' 7.62 X 54R',
+          dataSource: ' Nosler',
+          powderMan: ' Vihtavouori ',
+          powder: ' N140 ',
+          charge: ' 42.8gr ',
+          primer: ' CCI 200 ',
+          primerLotNum: '',
+          bulletDes: ' Lapua D166 ',
+          bulletWei: ' 200gr',
+          cast: false,
+          alloyRatio: '',
+          wheelWeights: false,
+          oal: ' 2.99 '
         },
         {
           id: 2,
-          caliber: '30-06',
-          powderMan: 'IMR ',
-          powder: '4895 ',
-          charge: '32gr ',
+          caliber: ' 30-06',
+          powderMan: ' IMR ',
+          powder: ' 4895 ',
+          charge: ' 32gr ',
           primer: ' CCI 200 ',
-          primerLotNum: 'n/a',
-          bulletDes: 'Lyman 311299 ',
-          bulletWei: '200gr',
+          primerLotNum: '',
+          bulletDes: ' Lyman 311299 ',
+          bulletWei: ' 200gr',
+          cast: 'true',
+          alloyRatio: '',
+          wheelWeights: 'true',
           oal: ' 3.56 '
         },
 
         {
           id: 3,
-          caliber: '30 M1 Carbine',
-          powderMan: 'Hodgdon ',
-          powder: 'H110 ',
-          charge: '13gr ',
+          caliber: ' 30 M1 Carbine',
+          powderMan: ' Hodgdon ',
+          powder: ' H110 ',
+          charge: ' 13gr ',
           primer: ' CCI 400 ',
-          primerLotNum: 'n/a',
-          bulletDes: 'Jacketed soft point ',
-          bulletWei: '110gr',
+          primerLotNum: 'LBQ498765',
+          bulletDes: ' Jacketed soft point ',
+          bulletWei: ' 110gr',
+          cast: false,
+          alloyRatio: '',
+          wheelWeights: false,
           oal: ' 2.34 '
         },
 
         {
           id: 4,
-          caliber: '45 ACP',
-          powderMan: 'Alliant ',
-          powder: 'Bullseye ',
-          charge: '5gr ',
+          caliber: ' 45 ACP',
+          powderMan: ' Alliant ',
+          powder: ' Bullseye ',
+          charge: ' 5gr ',
           primer: ' CCI 200 ',
-          primerLotNum: 'n/a',
-          bulletDes: 'Round Nose ',
-          bulletWei: '230gr',
+          primerLotNum: '',
+          bulletDes: ' Round Nose ',
+          bulletWei: ' 230gr',
+          cast: false,
+          alloyRatio: '',
+          wheelWeights: false,
           oal: ' 1.25 '
         }
 
       ]
     };
-  },
+  }
 
-  render: function() {
+  render() {
     var {loads} = this.state;
 
     return(
         <div>
-          <AddLoadInfo form={this.props.form} className="container-fluid" />
-          <LoadList loads= {loads} className="container-fluid"/>
+          <AddLoadInfo form={this.props.form}  />
+          <LoadList loads= {loads} />
         </div>
     )
   }
-});
+};
 
 module.exports = LoadDataApp;

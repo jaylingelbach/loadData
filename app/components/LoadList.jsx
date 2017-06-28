@@ -12,7 +12,7 @@ var LoadList = React.createClass({
       });
     };
     return(
-      <div>
+      <div className="container-fluid">
         {renderLoads({})}
       </div>
     )

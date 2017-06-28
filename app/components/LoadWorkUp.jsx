@@ -1,7 +1,7 @@
 import React from 'react';
 
-var LoadWorkUp = React.createClass({
-  render: function() {
+class LoadWorkUp extends React.Component {
+  render() {
     return (
       <div>
       <h3> Load Work up component </h3>
@@ -10,6 +10,6 @@ var LoadWorkUp = React.createClass({
     </div>
     );
   }
-});
+};
 
 module.exports = LoadWorkUp;

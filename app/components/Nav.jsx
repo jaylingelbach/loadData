@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 
-var Nav = React.createClass({
-  render: function() {
+class Nav extends React.Component{
+  render() {
     return (
       <div>
         <h3> Nav bar component</h3>
@@ -13,6 +13,6 @@ var Nav = React.createClass({
       </div>
     );
   }
-});
+};
 
 module.exports = Nav;

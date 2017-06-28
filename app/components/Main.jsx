@@ -5,8 +5,8 @@ import AddLoadInfo from 'AddLoadInfo';
 import Nav from 'Nav';
 import LoadWorkUp from 'LoadWorkUp';
 
-var Main = React.createClass({
-  render: function() {
+class Main extends React.Component {
+  render () {
     return (
       <div>
       <Nav/>
@@ -15,6 +15,6 @@ var Main = React.createClass({
     </div>
     );
   }
-});
+};
 
 module.exports = Main;

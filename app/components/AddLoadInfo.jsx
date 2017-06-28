@@ -28,6 +28,9 @@ const Type = t.struct({
   bulletMakeAndModel: t.String,
   bulletWeight: t.String,
   overallLength: t.Number,
+  cast: t.maybe(t.Boolean),
+  alloyRatio: t.maybe(t.String),
+  wheelWeights: t.maybe(t.Boolean),
   cartridgeBaseToOgiveAtLands: t.maybe(t.String),
   dateOfWorkUp: t.maybe(t.Date),
   dateShot: t.maybe(t.Date),
@@ -35,28 +38,45 @@ const Type = t.struct({
 
 });
 
-var AddLoadInfo = React.createClass({
+class AddLoadInfo extends React.Component {
 
-  getInitialState() {
-      return { options: options };
-    },
+  constructor(props) {
+    super(props);
+    this.state = {
+      options: options,
+      showForm: false,
+    };
+  }
 
     resetForm() {
       this.setState({ value: null });
-    },
+    }
 
     onSubmit(e) {
       e.preventDefault()
+      if(showForm === false) {
+        this.setState({
+          showForm: true
+        });
+      }
       const value = this.refs.form.getValue()
       if (value) {
         console.log(value)
       }
       this.resetForm();
-    },
+    };
 
-    render: function() {
+    onClick(e) {
+      e.preventDefault()
+      this.setState({
+        showForm: true
+      });
+    }
+    render() {
       return (
         <div className="container-fluid">
+          <button className="btn btn-primary" showForm={this.showForm} onClick={this.onClick}>Add a new load</button>
+
       <form onSubmit={this.onSubmit}>
        <Form
          ref="form"
@@ -64,12 +84,12 @@ var AddLoadInfo = React.createClass({
          options={this.state.options}
        />
 
-       <button className="btn btn-primary">Save</button>
+     <button className="btn btn-primary">Save</button>
      </form>
    </div>
       );
     }
-});
+};
 
 
 module.exports = AddLoadInfo;
