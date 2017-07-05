@@ -3,6 +3,8 @@ import LoadList from 'LoadList';
 import AddLoadInfo from 'AddLoadInfo';
 import Nav from 'Nav';
 import LoadWorkUp from 'LoadWorkUp';
+import FormExample from 'Form';
+// import Form from 'Form'
 
 class LoadDataApp extends React.Component {
 
@@ -12,7 +14,7 @@ class LoadDataApp extends React.Component {
       value: null,
       loads: [
         {
-          id: 1,
+          id: 1, 
           caliber: ' 7.62 X 54R',
           dataSource: ' Nosler',
           powderMan: ' Vihtavouori ',
@@ -84,7 +86,7 @@ class LoadDataApp extends React.Component {
 
     return(
         <div>
-          <AddLoadInfo form={this.props.form}  />
+          <AddLoadInfo form={this.props.FormExample}  />
           <LoadList loads= {loads} />
         </div>
     )
