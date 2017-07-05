@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {Checkbox, Radio, FormGroup, ControlLabel, FormControl, Button, Form, HelpBlock} from 'react-bootstrap';
+import {Checkbox, FormGroup, ControlLabel, FormControl, Button, Form, HelpBlock} from 'react-bootstrap';
+import {isNaN} from 'lodash';
 
 class FormExample extends React.Component {
     constructor(props){
@@ -8,6 +9,7 @@ class FormExample extends React.Component {
       this.state = {
         value: ''
       };
+      this.handleChange = this.handleChange.bind(this);
 }
   getValidationState() {
     const length = this.state.value.length;
@@ -27,7 +29,7 @@ render() {
       <form>
              <FormGroup controlId="caliber">
                <ControlLabel>Caliber:</ControlLabel>
-                 <FormControl componentClass="select" placeholder="select" id="caliber">
+                 <FormControl componentClass="select" placeholder="select" onChange={this.handleChange}>
                    <option value="select" id="select-caliber">Select</option>
                    <option value="30-06" id="30-06">30-06</option>
                    <option value="357" id="357">357 Magnum</option>
@@ -44,12 +46,13 @@ render() {
                type="text"
                label="Text"
                placeholder="Where was the load information found"
+               onChange={this.handleChange}
              />
             </FormGroup>
 
             <FormGroup controlId="powderManufacturer">
               <ControlLabel>Powder Manufacturer:</ControlLabel>
-                <FormControl componentClass="select" placeholder="select">
+                <FormControl componentClass="select" placeholder="select" onChange={this.handleChange}>
                   <option value="select">Select</option>
                   <option value="alliant">Alliant</option>
                   <option value="hodgdon">Hodgdon</option>
@@ -70,6 +73,7 @@ render() {
               type="text"
               label="Text"
               placeholder="Name of powder"
+              onChange={this.handleChange}
             />
            </FormGroup>
 
@@ -81,11 +85,13 @@ render() {
             type="text"
             label="Text"
             placeholder="Weight of powder in grains"
+            onChange={this.handleChange}
+            numValidation={this.numValidation}
           />
          </FormGroup>
          <FormGroup controlId="primer">
            <ControlLabel>Primer</ControlLabel>
-             <FormControl componentClass="select" placeholder="select">
+             <FormControl componentClass="select" placeholder="select" onChange={this.handleChange}>
                <option value="select" id="primerSelect"> Select </option>
                <option value="cciPrimers" id="cciPrimers"> - CCI Primers -</option>
                <option value="cci400" id="cci400"> CCI 400 - Small Rifle</option>
@@ -111,6 +117,7 @@ render() {
            type="text"
            label="Text"
            placeholder="Primer Lot number (optional)"
+           onChange={this.handleChange}
          />
         </FormGroup>
 
@@ -122,6 +129,7 @@ render() {
           type="text"
           label="Text"
           placeholder="i.e. Lapua D166"
+          onChange={this.handleChange}
         />
        </FormGroup>
 
@@ -133,10 +141,11 @@ render() {
          type="text"
          label="Text"
          placeholder="Weight of bullet in grains"
+         onChange={this.handleChange}
        />
       </FormGroup>
 
-      <Checkbox readOnly id="cast">
+      <Checkbox readOnly id="cast" onChange={this.handleChange}>
   Cast (Optional)
 </Checkbox>
 
@@ -148,6 +157,7 @@ render() {
   type="text"
   label="Text"
   placeholder="20:1, wheel weights, Hardball etc..."
+  onChange={this.handleChange}
 />
 </FormGroup>
 
@@ -159,6 +169,7 @@ render() {
   type="text"
   label="Text"
   placeholder="Overall Length of finished cartridge"
+  onChange={this.handleChange}
 />
 </FormGroup>
 
@@ -170,9 +181,16 @@ render() {
   type="text"
   label="Text"
   placeholder="Enter a numerical value"
+  onChange={this.handleChange}
 />
 </FormGroup>
 
+<Button
+  type="submit"
+  onSubmit={this.numValidation}
+  >
+      Add Load
+    </Button>
 
            </form>
   )
@@ -180,7 +198,4 @@ render() {
 
 }
 
-
-
-// ReactDOM.render(form, mountNode);
 module.exports = FormExample;
